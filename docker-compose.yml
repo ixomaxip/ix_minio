@@ -1,22 +1,25 @@
-version: '3.1'
+version: '3'
 
 services:
   rt:
     build:
-      context: .
-      args:
-        BASE_IMG: $BASE_IMG
+        context: .
+        args:
+            BASE_IMG: $BASE_IMG
     image: $REG/rt/$SRV:$RT
-    labels:
-      - traefik.enable=true
-      - traefik.frontend.rule=PathPrefixStrip:/$SRV/
+    network_mode: host
+    # labels:
+    #   - traefik.enable=false
+    #   - traefik.frontend.rule=PathPrefixStrip:/$SRV/
+    env_file: 
+        - .secrets
     volumes:
-      - ./data:/data
+      - $DATA_DIR:/data
     ports:
-    - 9000:9000
+      - 9999:9000
     restart: always
 
-networks:
-  default:
-    external:
-      name: rt_default
+# networks:
+#   default:
+#     external:
+#       name: rt_default
