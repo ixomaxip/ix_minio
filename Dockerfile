@@ -5,4 +5,4 @@ VOLUME ["/data"]
 
 EXPOSE 9000
 
-CMD ["server","./data"]
+CMD ["server","/data"]

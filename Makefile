@@ -19,4 +19,4 @@ up:
 
 ID=`docker-compose ps -q`
 sh:
-	docker exec -it $(ID) bash
+	docker exec -it $(ID) sh
