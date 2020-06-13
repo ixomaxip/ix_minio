@@ -8,8 +8,8 @@ services:
             BASE_IMG: $BASE_IMG
     image: $REG/rt/$SRV:$RT
     labels:
-      - traefik.enable=true
-      - traefik.frontend.rule=PathPrefix:/minio/
+      traefik.enable: "true"
+      traefik.http.routers.minio-0.rule: PathPrefix(`/minio/`)
     env_file: 
         - .secrets
     volumes:
