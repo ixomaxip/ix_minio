@@ -14,8 +14,6 @@ services:
         - .secrets
     volumes:
       - $DATA_DIR:/data
-    ports:
-      - 9999:9000
     restart: always
 
 networks:
